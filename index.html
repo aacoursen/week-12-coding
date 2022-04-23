@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet"/>
+    <link href="style.css" rel="stylesheet"/>
+    <title>CRUD</title>
+</head>
+<body class="container">
+    <div class="alert alert-warning hidden" role="alert" id="error-box">
+        All fields must be filled 
+        <a onclick="CloseError()" aria-label="Close" class="closeError">&#10006;</a>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <div class="header">
+                <h2>My favorite books</h2>
+                <h6>List of books that I love: <span id="counter"></span></h6>
+            </div>
+            <div class="form-group">
+            <form action="javascript:void(0);" method="post" onsubmit="app.Add()">
+                <div class="row">
+                    <div class="col-sm">    
+                        <label for="new-task">Name of Book</label>
+                        <input type="text" class="form-control" id="new-task" placegolder="Task">  
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm">
+                        <label for="task-type"> Type of Book</label>
+                        <select id="task-type" class="form-control" name="task-type">
+                            <option value="" disabled selected>Choose one</option>
+                            <option value="Fanatasy">Fantasy</option>
+                            <option value="Romance">Romance</option>
+                            <option value="Relastic Fiction">Realstic Fiction</option>
+                            <option value="Historic Fiction">Historic Fiction</option>
+                            <option value="Distopian">Distopian</option>
+                        </select>
+                    </div>
+                    <div class="col-sm">
+                        <label for="urgency-level">Type of book, sub-genere</label>
+                        <select id="urgency-level" class="form-control" name="Type of book, sub-genere">
+                            <option value="" disabled selected>Choose one</option>
+                            <option value="Urban Fantasy">Urban Fantasy</option>
+                            <option value="Young Adult">Young Adult</option>
+                            <option value="Science Fiction">Science Fiction</option>
+                            <option value="Mystery">Mystery</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm">
+                        <input type="submit" value="Add Task" class="btn btn-primary">
+                    </div>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
+
+    <table id="task-list" class="table table-light table-striped hidden">
+        <tr>
+            <th>Book Title</th>
+            <th>Book Author</th>
+            <th>Book Genre</th>
+            <th class = "s-cell">Action</th>
+        </tr>
+    </table>
+
+    <div id="edit-box" class="hidden" role="aria-hidden">
+        <form action="javascript:void(0);" method="post" id="save-edit">
+            <div class="bar">
+                <a onclick="CloseInput()" aria-label="Close" class="closeInput">&#10006;</a>
+                <br>
+            </div>
+            <div class="row">
+                <div class="col-sm">
+                    <label for="edit-task">Name of Book</label>
+                    <input type="text" id="edit-task" class="form-control">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm">
+                    <label for="edit-task-type">Type of Book Author</label>
+                    <select id="edit-task-type" class="form-control" name="task">
+                        <option value="Fantasy">Fantasy</option>
+                        <option value="Romance">Romance</option>
+                        <option value="Realstic Fiction">Realstic Fiction</option>
+                        <option value="Historic Fiction">Historic Fiction</option>
+                        <option value="Others">Others</option>
+                    </select>
+                </div>
+                <div class="col-sm">
+                    <label for="edit-urgency-level">Type of Book Genre</label>
+                    <select id="edit-urgency-level" class="form-control" name="urgency-level">
+                        <option value="Urban Fantasy">Urban Fantasy</option>
+                        <option value="Young Adult">Young Adult</option>
+                        <option value="Science Fiction">Science Fiction</option>
+                        <option value="Mystery">Mystery</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm">
+                    <input type="submit" value="Save Changes" class="btn btn-primary">
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
